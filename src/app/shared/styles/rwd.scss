@@ -1,0 +1,33 @@
+$screen-sm: 576px;    // Small devices
+$screen-md: 768px;    // Medium devices
+$screen-lg: 992px;    // Large devices
+$screen-xl: 1200px;   // Extra large devices
+
+@mixin respond-to-screen($breakpoint) {
+  @if $breakpoint == small {
+    @media (min-width: $screen-sm) { @content; }
+  }
+  @else if $breakpoint == medium {
+    @media (min-width: $screen-md) { @content; }
+  }
+  @else if $breakpoint == large {
+    @media (min-width: $screen-lg) { @content; }
+  }
+  @else if $breakpoint == xlarge {
+    @media (min-width: $screen-xl) { @content; }
+  }
+}
+
+// EXAMPLE OF USE
+
+//.element {
+//  width: 100%;
+//
+//  @include respond-to-screen(medium) {
+//    width: 50%;
+//  }
+//
+//  @include respond-to-screen(small) {
+//    width: 25%;
+//  }
+//}
