@@ -1,7 +1,7 @@
-$screen-sm: 576px;    // Small devices
-$screen-md: 768px;    // Medium devices
-$screen-lg: 992px;    // Large devices
-$screen-xl: 1200px;   // Extra large devices
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
 
 @mixin respond-to-screen($breakpoint) {
   @if $breakpoint == small {

@@ -1,17 +1,19 @@
 <div class="landing-page">
   <div class="landing-page__background">
     <div class="overlay"></div>
-    <img src="assets/nissan-background.webp">
   </div>
   <div class="landing-page__content">
     <div class="landing-page__logo">
-      <img src="assets/mechanic-logo.png">
+      <img src="../../assets/mechanic-logo.png">
       <h2 class="landing-page__logo-title">XENTERUS</h2>
       <p class="landing-page__logo-description">Store and maintain your vehicle with complete car management system</p>
     </div>
     <div class="landing-page__actions">
-      <button mat-raised-button color="warn">Sign in</button>
-      <button mat-raised-button>Sign up</button>
+      <button class="landing-page__btn" mat-raised-button color="warn" [routerLink]="'/auth/login'">Sign in</button>
+      <button class="landing-page__btn" mat-raised-button [routerLink]="'/auth/register'">Sign up</button>
+    </div>
+    <div class="copyright">
+      <span>&#169; {{ year }} MCM</span>
     </div>
   </div>
 </div>
