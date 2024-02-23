@@ -1,0 +1,9 @@
+@use "../../shared/styles/var" as var;
+
+.login-panel {
+  &__toolbar {
+    height: auto;
+    background: transparent;
+    padding: var.$primary-space * 2;
+  }
+}
