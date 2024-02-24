@@ -1,9 +1,79 @@
-@use "../../shared/styles/var" as var;
+@use "./src/app/shared/styles/rwd" as rwd;
+@use "./src/app/shared/styles/var" as var;
+@use "./src/app/shared/styles/shared" as shared;
 
 .login-panel {
   &__toolbar {
     height: auto;
     background: transparent;
     padding: var.$primary-space * 2;
+
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-height: 48px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 96px);
+  }
+
+  &__header {
+    margin-bottom: var.$primary-space * 2;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var.$primary-space * 0.5;
+
+    @include rwd.respond-to-screen(large) {
+      width: 25%;
+    }
+
+    &-field {
+      width: 100%;
+    }
+  }
+
+  &__btn-submit {
+    height: var.$btn-mobile-auth-height;
+    width: 100%;
+    @include shared.button-red;
+  }
+
+  &__other {
+    margin-top: var.$primary-space;
+
+    &-text {
+      margin: var.$primary-space;
+      text-align: center;
+
+      &--link {
+        @include shared.link;
+      }
+    }
+  }
+
+  &__platforms {
+    display: flex;
+    justify-content: center;
+    gap: var.$primary-space;
+
+    &-button {
+      width: 48px;
+      height: 48px;
+
+      img {
+        height: 100%;
+      }
+    }
   }
 }

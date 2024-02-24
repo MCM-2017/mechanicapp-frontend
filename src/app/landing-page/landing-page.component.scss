@@ -1,5 +1,6 @@
 @use "../shared/styles/rwd" as rwd;
 @use "../shared/styles/var" as var;
+@use "../shared/styles/shared" as shared;
 
 .landing-page {
   position: relative;
@@ -110,8 +111,12 @@
 
   }
 
-  &__btn {
+  &__button {
     height: var.$btn-large-height;
     width: var.$btn-large-width;
+
+    &--sign-in {
+      @include shared.button-red;
+    }
   }
 }
