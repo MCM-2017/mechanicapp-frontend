@@ -52,3 +52,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
   //border-color: white !important;
 }
+
+.mat-mdc-checkbox.mat-primary .mdc-checkbox--selected~.mdc-checkbox__ripple {
+  background-color: black !important;
+}
+
+.mat-mdc-checkbox .mdc-checkbox:not(:disabled):active .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+  border-color: black !important;
+  background-color: black !important;
+}
+
+.mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+  border-color: black !important;
+  background-color: black !important;
+}

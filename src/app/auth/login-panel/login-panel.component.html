@@ -1,45 +1,28 @@
-<mat-toolbar class="login-panel__toolbar">
-  <button mat-icon-button [routerLink]="'/'">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <img src="./assets/mechanic-logo-dark.png">
-</mat-toolbar>
-<div class="login-panel__content">
-  <h2 class="login-panel__header">Sign in your account</h2>
+<div class="login-panel">
+  <app-auth-toolbar></app-auth-toolbar>
 
-  <form class="login-panel__form" [formGroup]="loginForm" (ngSubmit)="submit()">
-    <mat-form-field class="login-panel__form-field" appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput [formControl]="emailControl">
-      <mat-error *ngIf="emailControl.invalid">{{ emailErrorMessage() }}</mat-error>
-    </mat-form-field>
-    <mat-form-field class="login-panel__form-field" appearance="outline">
-      <mat-label>Password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordControl">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-      <mat-error *ngIf="passwordControl.invalid">{{ passwordErrorMessage() }}</mat-error>
-    </mat-form-field>
+  <div class="login-panel__content">
+    <h2 class="login-panel__header">Sign in your account</h2>
 
-    <button class="login-panel__btn-submit" mat-raised-button color="warn" type="submit">Sign in</button>
-  </form>
+    <form class="login-panel__form" [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field class="login-panel__form-field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="emailControl">
+        <mat-error *ngIf="emailControl.invalid">{{ getFormControlErrorMessage(emailControl) }}</mat-error>
+      </mat-form-field>
 
-  <div class="login-panel__other">
-    <p class="login-panel__other-text">or sign in with</p>
+      <mat-form-field class="login-panel__form-field" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="passwordVisible ? 'text' : 'password'" [formControl]="passwordControl">
+        <button mat-icon-button matSuffix (click)="passwordVisible = !passwordVisible" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordVisible">
+          <mat-icon>{{ passwordVisible ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="passwordControl.invalid">{{ getFormControlErrorMessage(passwordControl) }}</mat-error>
+      </mat-form-field>
 
-    <div class="login-panel__platforms">
-      <button mat-icon-button class="login-panel__platforms-button">
-        <mat-icon svgIcon="google"></mat-icon>
-      </button>
-      <button mat-icon-button class="login-panel__platforms-button">
-        <mat-icon svgIcon="facebook"></mat-icon>
-      </button>
-      <button mat-icon-button class="login-panel__platforms-button">
-        <mat-icon svgIcon="twitter"></mat-icon>
-      </button>
-    </div>
+      <button class="login-panel__btn-submit" mat-raised-button color="warn" type="submit">Sign in</button>
+    </form>
 
-    <p class="login-panel__other-text">Don't have an account? <a class="login-panel__other-text--link" [routerLink]="'../register'">Sign up</a>!</p>
+    <app-auth-platforms [authOperationType]="authOperationType"></app-auth-platforms>
   </div>
 </div>

@@ -1,1 +1,58 @@
-<p>register-panel works!</p>
+<div class="register-panel">
+  <app-auth-toolbar></app-auth-toolbar>
+
+  <div class="register-panel__content">
+    <h2 class="register-panel__header">Create your account</h2>
+
+    <form class="register-panel__form" [formGroup]="registerForm" (ngSubmit)="submit()">
+      <mat-form-field class="register-panel__form-field" appearance="outline">
+        <mat-label>Firstname</mat-label>
+        <input matInput [formControl]="firstNameControl">
+        <mat-error *ngIf="firstNameControl.invalid">{{ getFormControlErrorMessage(firstNameControl) }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-panel__form-field" appearance="outline">
+        <mat-label>Lastname</mat-label>
+        <input matInput [formControl]="lastNameControl">
+        <mat-error *ngIf="lastNameControl.invalid">{{ getFormControlErrorMessage(lastNameControl) }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-panel__form-field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="emailControl">
+        <mat-error *ngIf="emailControl.invalid">{{ getFormControlErrorMessage(emailControl) }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-panel__form-field" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="passwordVisible ? 'text' : 'password'" [formControl]="passwordControl">
+        <button mat-icon-button matSuffix (click)="passwordVisible = !passwordVisible" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordVisible">
+          <mat-icon>{{ passwordVisible ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="passwordControl.invalid">{{ getFormControlErrorMessage(passwordControl) }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-panel__form-field" appearance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input matInput [type]="passwordVisible ? 'text' : 'password'" [formControl]="confirmPasswordControl">
+        <button mat-icon-button matSuffix (click)="passwordVisible = !passwordVisible" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordVisible">
+          <mat-icon>{{ passwordVisible ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="confirmPasswordControl.invalid">{{ getFormControlErrorMessage(confirmPasswordControl) }}</mat-error>
+      </mat-form-field>
+
+      <div class="register-panel__form-field-checkbox">
+        <mat-checkbox color="primary" [formControl]="agreeTermsControl">
+          By signing up you accept the <a href="" class="register-panel__form-field-checkbox--link">terms and policy</a>.
+        </mat-checkbox>
+        <mat-error class="register-panel__form-field-checkbox--error" *ngIf="isSubmitClicked && agreeTermsControl.invalid">
+          {{ getFormControlErrorMessage(agreeTermsControl) }}
+        </mat-error>
+      </div>
+
+      <button class="register-panel__btn-submit" mat-raised-button color="warn" type="submit">Sign up</button>
+    </form>
+
+    <app-auth-platforms [authOperationType]="authOperationType"></app-auth-platforms>
+  </div>
+</div>

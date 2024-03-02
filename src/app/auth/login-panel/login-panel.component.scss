@@ -3,17 +3,11 @@
 @use "./src/app/shared/styles/shared" as shared;
 
 .login-panel {
-  &__toolbar {
-    height: auto;
-    background: transparent;
-    padding: var.$primary-space * 2;
+  display: flex;
+  flex-direction: column;
 
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      max-height: 48px;
-    }
+  @include rwd.respond-to-screen-height(535px) {
+    height: 100%;
   }
 
   &__content {
@@ -34,7 +28,7 @@
     align-items: center;
     gap: var.$primary-space * 0.5;
 
-    @include rwd.respond-to-screen(large) {
+    @include rwd.respond-to-screen-width(large) {
       width: 25%;
     }
 
@@ -47,33 +41,5 @@
     height: var.$btn-mobile-auth-height;
     width: 100%;
     @include shared.button-red;
-  }
-
-  &__other {
-    margin-top: var.$primary-space;
-
-    &-text {
-      margin: var.$primary-space;
-      text-align: center;
-
-      &--link {
-        @include shared.link;
-      }
-    }
-  }
-
-  &__platforms {
-    display: flex;
-    justify-content: center;
-    gap: var.$primary-space;
-
-    &-button {
-      width: 48px;
-      height: 48px;
-
-      img {
-        height: 100%;
-      }
-    }
   }
 }

@@ -1,10 +1,14 @@
+$screen-xsm: 375px;
 $screen-sm: 576px;
 $screen-md: 768px;
 $screen-lg: 992px;
 $screen-xl: 1200px;
 
-@mixin respond-to-screen($breakpoint) {
-  @if $breakpoint == small {
+@mixin respond-to-screen-width($breakpoint) {
+  @if $breakpoint == xsmall {
+    @media (min-width: $screen-xsm) { @content; }
+  }
+  @else if $breakpoint == small {
     @media (min-width: $screen-sm) { @content; }
   }
   @else if $breakpoint == medium {
@@ -16,6 +20,10 @@ $screen-xl: 1200px;
   @else if $breakpoint == xlarge {
     @media (min-width: $screen-xl) { @content; }
   }
+}
+
+@mixin respond-to-screen-height($breakpoint) {
+  @media (min-height: $breakpoint) { @content }
 }
 
 // EXAMPLE OF USE

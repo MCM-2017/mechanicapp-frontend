@@ -1,0 +1,29 @@
+@use "./src/app/shared/styles/var" as var;
+@use "./src/app/shared/styles/shared" as shared;
+
+.platforms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var.$primary-space 0;
+
+  &__item {
+    margin: 0 var.$primary-space * 0.5;
+    width: 48px;
+    height: 48px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__text {
+    margin: var.$primary-space;
+    text-align: center;
+
+    &--link {
+      cursor: pointer;
+      @include shared.link;
+    }
+  }
+}

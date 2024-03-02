@@ -1,0 +1,14 @@
+@use "./src/app/shared/styles/var" as var;
+
+.auth-toolbar {
+  height: auto;
+  background: transparent;
+  padding: var.$primary-space * 2;
+
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    max-height: 48px;
+  }
+}

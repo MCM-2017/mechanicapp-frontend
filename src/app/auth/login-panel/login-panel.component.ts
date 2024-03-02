@@ -5,8 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AuthOperationType } from '../../shared/enums/AuthOperationType';
+import { getFormControlErrorMessage } from '../../shared/utils/form.utils';
 
 @Component({
   selector: 'app-login-panel',
@@ -15,7 +15,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class LoginPanelComponent implements OnInit {
   loginForm!: FormGroup;
-  hide = true;
+  passwordVisible = false;
+  authOperationType = AuthOperationType.Login;
 
   get emailControl(): FormControl {
     return <FormControl>this.loginForm.controls['email'];
@@ -25,17 +26,7 @@ export class LoginPanelComponent implements OnInit {
     return <FormControl>this.loginForm.controls['password'];
   }
 
-  private iconsPath = '../../assets/icons/';
-
-  constructor(
-    private _fb: FormBuilder,
-    private _matIconRegistry: MatIconRegistry,
-    private _sanitizer: DomSanitizer,
-  ) {
-    this.setRegistryIcon('google');
-    this.setRegistryIcon('facebook');
-    this.setRegistryIcon('twitter');
-  }
+  constructor(private _fb: FormBuilder) {}
 
   ngOnInit() {
     this.loginForm = this._fb.group({
@@ -48,28 +39,7 @@ export class LoginPanelComponent implements OnInit {
     console.log(this.loginForm);
   }
 
-  emailErrorMessage() {
-    if (this.emailControl.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.emailControl.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  passwordErrorMessage() {
-    return this.passwordControl.hasError('required')
-      ? 'You must enter a value'
-      : '';
-  }
-
-  private setRegistryIcon(name: string) {
-    this._matIconRegistry.addSvgIcon(
-      name,
-      this.setPath(`${this.iconsPath}${name}.svg`),
-    );
-  }
-
-  private setPath(url: string): SafeResourceUrl {
-    return this._sanitizer.bypassSecurityTrustResourceUrl(url);
+  getFormControlErrorMessage(formControl: FormControl): string {
+    return getFormControlErrorMessage(formControl);
   }
 }

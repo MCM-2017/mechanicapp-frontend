@@ -1,0 +1,60 @@
+@use "./src/app/shared/styles/rwd" as rwd;
+@use "./src/app/shared/styles/var" as var;
+@use "./src/app/shared/styles/shared" as shared;
+
+.register-panel {
+  display: flex;
+  flex-direction: column;
+
+  @include rwd.respond-to-screen-height(859px) {
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 96px);
+  }
+
+  &__header {
+    margin-bottom: var.$primary-space * 2;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var.$primary-space * 0.5;
+    min-width: 248px;
+    width: 25%;
+
+    &-field {
+      width: 100%;
+
+      &-checkbox {
+        position: relative;
+        margin-bottom: 20px;
+
+        &--link {
+          @include shared.link;
+        }
+
+        &--error {
+          font-size: 12px;
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  &__btn-submit {
+    height: var.$btn-mobile-auth-height;
+    width: 100%;
+    @include shared.button-red;
+  }
+}
