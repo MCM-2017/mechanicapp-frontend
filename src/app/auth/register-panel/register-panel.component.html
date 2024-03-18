@@ -42,7 +42,7 @@
       </mat-form-field>
 
       <div class="register-panel__form-field-checkbox">
-        <mat-checkbox color="primary" [formControl]="agreeTermsControl">
+        <mat-checkbox color="accent" [formControl]="agreeTermsControl">
           By signing up you accept the <a href="" class="register-panel__form-field-checkbox--link">terms and policy</a>.
         </mat-checkbox>
         <mat-error class="register-panel__form-field-checkbox--error" *ngIf="isSubmitClicked && agreeTermsControl.invalid">

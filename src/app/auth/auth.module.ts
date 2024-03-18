@@ -4,11 +4,10 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { RegisterPanelComponent } from './register-panel/register-panel.component';
 import { SharedModule } from '../shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LoginPanelComponent, RegisterPanelComponent],
-  imports: [CommonModule, AuthRoutingModule, SharedModule, ReactiveFormsModule],
+  imports: [CommonModule, AuthRoutingModule, SharedModule],
   exports: [],
 })
 export class AuthModule {}
