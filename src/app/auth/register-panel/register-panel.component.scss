@@ -53,7 +53,6 @@
   }
 
   &__btn-submit {
-    height: var.$btn-mobile-auth-height;
     width: 100%;
     @include shared.button-red;
   }

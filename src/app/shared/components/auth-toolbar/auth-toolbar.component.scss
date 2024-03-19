@@ -11,4 +11,10 @@
   img {
     max-height: 48px;
   }
+
+  &__right-side {
+    display: flex;
+    align-items: center;
+    gap: var.$primary-space;
+  }
 }

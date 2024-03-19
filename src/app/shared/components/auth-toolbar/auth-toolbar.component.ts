@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AuthToolbarComponent {
   constructor(private _router: Router) {}
 
-  navigateBack() {
+  navigateBack(): void {
     this._router.navigate(['/']);
   }
 }

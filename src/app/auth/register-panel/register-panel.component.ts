@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { AuthOperationType } from '../../shared/enums/AuthOperationType';
+import { AuthOperationType } from '../../shared/enums/auth-operation-type.model';
 import {
   confirmPasswordValidator,
   getFormControlErrorMessage,

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { AuthOperationType } from '../../enums/AuthOperationType';
+import { AuthOperationType } from '../../enums/auth-operation-type.model';
 import { Router } from '@angular/router';
 
 @Component({

@@ -112,8 +112,8 @@
   }
 
   &__button {
-    height: var.$btn-large-height;
-    width: var.$btn-large-width;
+    height: var.$btn-large-height !important;
+    width: var.$btn-large-width !important;
 
     &--sign-in {
       @include shared.button-red;

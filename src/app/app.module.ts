@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconTestingModule } from '@angular/material/icon/testing';
+import { StoreModule } from '@ngrx/store';
+import { globalReducer } from './store/global.reducer';
 
 @NgModule({
   declarations: [AppComponent, LandingPageComponent],
@@ -17,6 +19,7 @@ import { MatIconTestingModule } from '@angular/material/icon/testing';
     SharedModule,
     HttpClientModule,
     MatIconTestingModule,
+    StoreModule.forRoot({ global: globalReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],
