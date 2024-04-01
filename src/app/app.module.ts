@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconTestingModule } from '@angular/material/icon/testing';
 import { StoreModule } from '@ngrx/store';
 import { globalReducer } from './store/global.reducer';
+import { AuthModule } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [AppComponent, LandingPageComponent],

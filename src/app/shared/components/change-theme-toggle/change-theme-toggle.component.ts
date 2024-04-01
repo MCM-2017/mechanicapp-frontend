@@ -1,10 +1,11 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AppState } from '../../../store/app.reducer';
 import { Store } from '@ngrx/store';
 import * as GlobalActions from 'src/app/store/global.action';
 import { ThemeToggleIconName } from '../../enums/theme-toggle-icon-name';
 import { selectIsDarkMode } from '../../../store/global.selector';
 import { Subject, takeUntil } from 'rxjs';
+import { ProjectProperties } from '../../../../properities';
 
 @Component({
   selector: 'app-change-theme-toggle',
@@ -29,6 +30,9 @@ export class ChangeThemeToggleComponent implements OnInit {
       .subscribe({
         next: (isDarkMode) => {
           this.isDarkMode = isDarkMode;
+          this.iconName = isDarkMode
+            ? ThemeToggleIconName.LightToggle
+            : ThemeToggleIconName.DarkToggle;
         },
       });
   }
