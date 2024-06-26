@@ -1,16 +1,18 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { AppState } from '../../../store/app.reducer';
-import { Store } from '@ngrx/store';
+import {Component, OnInit, Renderer2} from '@angular/core';
+import {AppState} from '../../../store/app.reducer';
+import {Store} from '@ngrx/store';
 import * as GlobalActions from 'src/app/store/global.action';
-import { ThemeToggleIconName } from '../../enums/theme-toggle-icon-name';
-import { selectIsDarkMode } from '../../../store/global.selector';
-import { Subject, takeUntil } from 'rxjs';
-import { ProjectProperties } from '../../../../properities';
+import {ThemeToggleIconName} from '../../enums/theme-toggle-icon-name';
+import {selectIsDarkMode} from '../../../store/global.selector';
+import {Subject, takeUntil} from 'rxjs';
+import {MatIconButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-change-theme-toggle',
   templateUrl: './change-theme-toggle.component.html',
   styleUrls: ['./change-theme-toggle.component.scss'],
+  standalone: true,
+  imports: [MatIconButton],
 })
 export class ChangeThemeToggleComponent implements OnInit {
   iconName = ThemeToggleIconName.DarkToggle;

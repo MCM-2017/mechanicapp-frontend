@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LandingPageComponent} from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
@@ -8,12 +8,25 @@ const routes: Routes = [
     component: LandingPageComponent,
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    path: 'auth/login',
+    loadComponent: () =>
+      import('./auth/login-panel/login-panel.component').then(
+        (x) => x.LoginPanelComponent,
+      ),
+  },
+  {
+    path: 'auth/register',
+    loadComponent: () =>
+      import('./auth/register-panel/register-panel.component').then(
+        (x) => x.RegisterPanelComponent,
+      ),
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+    loadComponent: () =>
+      import('./home/dashboard/dashboard.component').then(
+        (x) => x.DashboardComponent,
+      ),
   },
 ];
 

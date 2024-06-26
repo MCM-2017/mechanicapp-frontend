@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { selectIsDarkMode } from '../../../store/global.selector';
-import { Subject, takeUntil } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../../store/app.reducer';
-import { ProjectProperties } from '../../../../properities';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {selectIsDarkMode} from '../../../store/global.selector';
+import {noop, Subject, takeUntil} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../../store/app.reducer';
+import {ProjectProperties} from '../../../../properities';
+import {MatToolbar} from '@angular/material/toolbar';
+import {MatIconButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
+import {ChangeThemeToggleComponent} from '../change-theme-toggle/change-theme-toggle.component';
 
 @Component({
   selector: 'app-auth-toolbar',
   templateUrl: './auth-toolbar.component.html',
   styleUrls: ['./auth-toolbar.component.scss'],
+  standalone: true,
+  imports: [ChangeThemeToggleComponent, MatToolbar, MatIconButton, MatIcon],
 })
 export class AuthToolbarComponent implements OnInit {
   isDarkMode = false;
@@ -39,6 +45,6 @@ export class AuthToolbarComponent implements OnInit {
   }
 
   navigateBack(): void {
-    this._router.navigate(['/']);
+    this._router.navigate(['/']).then(noop);
   }
 }

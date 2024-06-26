@@ -1,6 +1,6 @@
-@use "./src/app/shared/styles/rwd" as rwd;
-@use "./src/app/shared/styles/var" as var;
-@use "./src/app/shared/styles/shared" as shared;
+@use 'src/app/shared/styles/rwd' as rwd;
+@use 'src/app/shared/styles/var' as var;
+@use 'src/app/shared/styles/shared' as shared;
 
 .login-panel {
   display: flex;

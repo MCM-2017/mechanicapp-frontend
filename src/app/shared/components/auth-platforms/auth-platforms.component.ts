@@ -1,13 +1,16 @@
-import { Component, Input } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { AuthOperationType } from '../../enums/auth-operation-type.model';
-import { Router } from '@angular/router';
+import {Component, Input} from '@angular/core';
+import {MatIcon, MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {AuthOperationType} from '../../enums/auth-operation-type.model';
+import {Router} from '@angular/router';
+import {MatIconButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-auth-platforms',
   templateUrl: './auth-platforms.component.html',
   styleUrls: ['./auth-platforms.component.scss'],
+  standalone: true,
+  imports: [MatIcon, MatIconButton],
 })
 export class AuthPlatformsComponent {
   @Input() authOperationType!: AuthOperationType;
