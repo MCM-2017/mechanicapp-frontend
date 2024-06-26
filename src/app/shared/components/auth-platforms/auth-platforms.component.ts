@@ -12,13 +12,13 @@ import { Router } from '@angular/router';
 export class AuthPlatformsComponent {
   @Input() authOperationType!: AuthOperationType;
 
-  get footerQuestionText() {
+  get footerQuestionText(): string {
     return this.authOperationType === AuthOperationType.Login
       ? "Don't have an account?"
       : 'Already have an account?';
   }
 
-  get footerOperationText() {
+  get footerOperationText(): string {
     return this.authOperationType === AuthOperationType.Login
       ? 'Sign up'
       : 'Sign in';
@@ -36,7 +36,7 @@ export class AuthPlatformsComponent {
     this.setRegistryIcon('twitter');
   }
 
-  navigate() {
+  navigate(): void {
     this._router
       .navigate([
         this.authOperationType === AuthOperationType.Login
@@ -46,7 +46,7 @@ export class AuthPlatformsComponent {
       .then();
   }
 
-  private setRegistryIcon(name: string) {
+  private setRegistryIcon(name: string): void {
     this._matIconRegistry.addSvgIcon(
       name,
       this.setPath(`${this.iconsPath}${name}.svg`),

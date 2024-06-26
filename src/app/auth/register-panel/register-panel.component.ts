@@ -49,7 +49,7 @@ export class RegisterPanelComponent implements OnInit {
 
   constructor(private _fb: FormBuilder) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.registerForm = this._fb.group(
       {
         firstName: ['', Validators.required],
@@ -63,7 +63,7 @@ export class RegisterPanelComponent implements OnInit {
     );
   }
 
-  submit() {
+  submit(): void {
     this.isSubmitClicked = true;
     console.log(this.registerForm);
   }

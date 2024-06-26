@@ -1,10 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators,} from '@angular/forms';
-import {AuthOperationType} from '../../shared/enums/auth-operation-type.model';
-import {getFormControlErrorMessage} from '../../shared/utils/form.utils';
-import {AuthService} from '../auth.service';
-import {Router} from '@angular/router';
-import {noop} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { AuthOperationType } from '../../shared/enums/auth-operation-type.model';
+import { getFormControlErrorMessage } from '../../shared/utils/form.utils';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { noop } from 'rxjs';
 
 @Component({
   selector: 'app-login-panel',
@@ -30,17 +35,17 @@ export class LoginPanelComponent implements OnInit {
     private _router: Router,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
   }
 
-  submit() {
+  submit(): void {
     const email = this.emailControl.value ?? '';
     const password = this.passwordControl.value ?? '';
-    return this._authService.login(email, password).subscribe({
+    this._authService.login(email, password).subscribe({
       next: (logged) => {
         this._router.navigate(['/home']).then(noop);
       },
