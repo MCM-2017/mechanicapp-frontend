@@ -3,10 +3,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatIconTestingModule} from '@angular/material/icon/testing';
 import {StoreModule} from '@ngrx/store';
 import {globalReducer} from './store/global.reducer';
-import {MatButton} from '@angular/material/button';
+import {IconConfigurationService} from './core/services/icon-configuration.service';
+import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,11 +14,9 @@ import {MatButton} from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconTestingModule,
     StoreModule.forRoot({ global: globalReducer }),
-    MatButton,
   ],
-  providers: [],
+  providers: [provideHttpClient(), IconConfigurationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

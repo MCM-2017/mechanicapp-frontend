@@ -43,10 +43,12 @@ export class ChangeThemeToggleComponent implements OnInit {
     this.isDarkMode = !this.isDarkMode;
     if (this.isDarkMode) {
       this.store.dispatch(GlobalActions.turnOnDarkMode({ isDarkMode: true }));
+      localStorage.setItem('theme', 'light-theme');
       this.renderer.addClass(document.body, 'dark-theme');
       this.iconName = ThemeToggleIconName.LightToggle;
     } else {
       this.store.dispatch(GlobalActions.turnOffDarkMode({ isDarkMode: false }));
+      localStorage.setItem('theme', 'dark-theme');
       this.renderer.removeClass(document.body, 'dark-theme');
       this.iconName = ThemeToggleIconName.DarkToggle;
     }

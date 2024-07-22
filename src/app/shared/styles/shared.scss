@@ -5,7 +5,18 @@
   background-image: linear-gradient(-60deg, #ff5858 0%, #9b2e2e 100%);
 }
 
+@mixin button-blue {
+  height: var.$btn-large-height !important;
+  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+}
+
 @mixin link {
+  font-weight: 700;
+  color: #4481eb;
+  text-decoration: none;
+}
+
+@mixin link-red {
   font-weight: 700;
   color: #9b2e2e;
   text-decoration: none;

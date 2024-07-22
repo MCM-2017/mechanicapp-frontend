@@ -8,25 +8,14 @@ const routes: Routes = [
     component: LandingPageComponent,
   },
   {
-    path: 'auth/login',
-    loadComponent: () =>
-      import('./auth/login-panel/login-panel.component').then(
-        (x) => x.LoginPanelComponent,
-      ),
-  },
-  {
-    path: 'auth/register',
-    loadComponent: () =>
-      import('./auth/register-panel/register-panel.component').then(
-        (x) => x.RegisterPanelComponent,
-      ),
+    path: 'auth',
+    loadChildren: () =>
+      import('./auth/auth-routing.module').then((x) => x.AuthRoutingModule),
   },
   {
     path: 'home',
-    loadComponent: () =>
-      import('./home/dashboard/dashboard.component').then(
-        (x) => x.DashboardComponent,
-      ),
+    loadChildren: () =>
+      import('./home/home-routing.module').then((x) => x.HomeRoutingModule),
   },
 ];
 

@@ -1,0 +1,17 @@
+.sidenav {
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    img {
+      height: 36px;
+    }
+  }
+
+  &__logo-title {
+    font-family: "Kode Mono", monospace;
+    font-weight: 700;
+    font-size: 20px;
+  }
+}

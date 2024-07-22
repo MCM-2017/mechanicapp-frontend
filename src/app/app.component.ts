@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import {Component} from '@angular/core';
+import {IconConfigurationService} from './core/services/icon-configuration.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +11,7 @@ export class AppComponent {
 
   private iconsPath = './src/assets/icons';
 
-  constructor(
-    private _matIconRegistry: MatIconRegistry,
-    private _sanitizer: DomSanitizer,
-  ) {
+  constructor(private iconConfiguration: IconConfigurationService) {
     // this._matIconRegistry.addSvgIcon(
     //   'svgGoogle',
     //   this.setPath(`${this.iconsPath}/google.svg`),
@@ -28,9 +24,5 @@ export class AppComponent {
     //   'svgTwitter',
     //   this.setPath(`${this.iconsPath}/twitter.svg`),
     // );
-  }
-
-  private setPath(url: string): SafeResourceUrl {
-    return this._sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

@@ -1,21 +1,25 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {LoginPanelComponent} from "./login-panel/login-panel.component";
-import {RegisterPanelComponent} from "./register-panel/register-panel.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginPanelComponent
+    loadComponent: () =>
+      import('./login-panel/login-panel.component').then(
+        (x) => x.LoginPanelComponent,
+      ),
   },
   {
     path: 'register',
-    component: RegisterPanelComponent
-  }
+    loadComponent: () =>
+      import('./register-panel/register-panel.component').then(
+        (x) => x.RegisterPanelComponent,
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AuthRoutingModule { }
+export class AuthRoutingModule {}

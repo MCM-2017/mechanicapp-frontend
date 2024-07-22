@@ -10,7 +10,7 @@ import {MatIconButton} from '@angular/material/button';
   templateUrl: './auth-platforms.component.html',
   styleUrls: ['./auth-platforms.component.scss'],
   standalone: true,
-  imports: [MatIcon, MatIconButton],
+  imports: [MatIconButton, MatIcon],
 })
 export class AuthPlatformsComponent {
   @Input() authOperationType!: AuthOperationType;
